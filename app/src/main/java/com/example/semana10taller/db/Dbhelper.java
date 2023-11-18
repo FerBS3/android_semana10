@@ -10,6 +10,7 @@ public class Dbhelper extends SQLiteOpenHelper {
     private static Dbhelper instancia;
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "db_Taller";
+    private Tablausuarios tablausuarios;
 
     public static synchronized Dbhelper getInstance(Context context) {
         if (instancia == null) {
@@ -23,7 +24,7 @@ public class Dbhelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onConfigure(SQLiteDatabase db) {
         super.onConfigure(db);
         db.setForeignKeyConstraintsEnabled(true);
     }
@@ -31,8 +32,17 @@ public class Dbhelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion != newVersion) {
-            // db.execSQL("DROP TABLE IF EXISTS " + DbContact.TablaContacto.TABLE_NAME);
+            this.tablausuarios.dropTable(db);
             onCreate(db);
         }
+    }
+
+    public void onCreate(SQLiteDatabase db) {
+        this.tablausuarios = new Tablausuarios();
+        this.tablausuarios.crearTabla(db);
+    }
+
+    public Tablausuarios getTablausuarios() {
+        return tablausuarios;
     }
 }
