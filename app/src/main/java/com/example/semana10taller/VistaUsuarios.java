@@ -11,9 +11,9 @@ public class VistaUsuarios extends RecyclerView.ViewHolder {
 
     public VistaUsuarios(@NonNull View itemView) {
         super(itemView);
-        id = itemView.findViewById(R.id.txtid);
-        usuario = itemView.findViewById(R.id.txtusuario);
-        correo = itemView.findViewById(R.id.txtcorreo);
-        clave = itemView.findViewById(R.id.txtclave);
+        id = itemView.findViewById(R.id.tablaid);
+        usuario = itemView.findViewById(R.id.tablaUsuario);
+        correo = itemView.findViewById(R.id.tablaCorreo);
+        clave = itemView.findViewById(R.id.tablaClave);
     }
 }

@@ -25,7 +25,7 @@ public class UsuarioHelper extends RecyclerView.Adapter<VistaUsuarios> {
     @NonNull
     @Override
     public VistaUsuarios onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista=LayoutInflater.from(contexto).inflate(R.layout.activity_usuarios2,parent,false);
+        View vista=LayoutInflater.from(contexto).inflate(R.layout.activity_filas,parent,false);
         return new VistaUsuarios(vista);
     }
 

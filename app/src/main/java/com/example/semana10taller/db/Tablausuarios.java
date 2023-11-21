@@ -85,9 +85,8 @@ public class Tablausuarios {
     public Cursor getUsuarios(SQLiteDatabase db) {
         Cursor datos = null;
         try {
-            datos = db.rawQuery("SELECT id, usuario, correo FROM " + TABBLA_NAME + " WHERE " +
-                    "usuario" +
-                    " != 'admin'", null);
+            String query = "SELECT * FROM " + TABBLA_NAME + ";";
+            datos = db.rawQuery(query, null);
         } catch (Exception e) {
 
         } finally {
