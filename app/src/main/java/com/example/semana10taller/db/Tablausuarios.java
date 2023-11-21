@@ -66,17 +66,32 @@ public class Tablausuarios {
             String usuario = datos.getAsString("usuario");
             String clave = datos.getAsString("clave");
             Cursor usuarioCursor = db.rawQuery("SELECT id, usuario, clave FROM " + TABBLA_NAME +
-                    " WHERE usuario = ? AND clave = ?", new String[]{usuario, clave},null);
+                    " WHERE usuario = ? AND clave = ?", new String[]{usuario, clave}, null);
             if (usuarioCursor.getCount() > 0) {
                 usuarioCursor.moveToFirst();
                 idIngreso = usuarioCursor.getString(0);
+                usuarioCursor.close();
             }
         } catch (Exception e) {
             Toast.makeText(null, "Error al eliminar el usuario", Toast.LENGTH_SHORT).show();
         } finally {
             db.close();
+
             return idIngreso;
         }
 
+    }
+
+    public Cursor getUsuarios(SQLiteDatabase db) {
+        Cursor datos = null;
+        try {
+            datos = db.rawQuery("SELECT id, usuario, correo FROM " + TABBLA_NAME + " WHERE " +
+                    "usuario" +
+                    " != 'admin'", null);
+        } catch (Exception e) {
+
+        } finally {
+            return datos;
+        }
     }
 }

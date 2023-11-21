@@ -10,23 +10,30 @@
         android:id="@+id/btn_usuarios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="106dp"
+        android:onClick="onClickIrUsuarios"
         android:text="Usuarios"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="106dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_equipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="54dp"
         android:text="Equipos"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="208dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_usuarios" />
 
     <Button
         android:id="@+id/btn_ordenes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="52dp"
         android:text="Ordenes"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="308dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_equipo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

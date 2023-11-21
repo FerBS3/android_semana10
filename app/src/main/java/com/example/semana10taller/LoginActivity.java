@@ -40,15 +40,17 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Usuario no existe", Toast.LENGTH_SHORT).show();
 
             } else {
-                Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                registrarCookiesUsuario(valido);
                 startActivity(new Intent(LoginActivity.this, MenuActivity.class));
-                this.finish();
+                // this.finish();
             }
         }
     }
-    public void registrarCookiesUsuario(String id){
+
+    public void registrarCookiesUsuario(String id) {
         SharedPreferences preferences = getSharedPreferences("taller", MODE_PRIVATE);
         SharedPreferences.Editor cookie = preferences.edit();
         cookie.putString("idUsuario", id);
+        cookie.commit();
     }
 }
